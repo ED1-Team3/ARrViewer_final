@@ -127,7 +127,7 @@ function MenubarPublish( editor ) {
 		//link.dispatchEvent( new MouseEvent( 'click' ) );
 		// Direct user to upload glb file
 		alert("Please upload work in the next page!");
-		var urllink = "../database/upload.php?username=user1";
+		var urllink = "../database/upload.php";
 		var newWindow = window.open(urllink);
 		link.dispatchEvent( new MouseEvent( 'click' ) );
 

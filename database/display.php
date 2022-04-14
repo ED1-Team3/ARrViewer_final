@@ -1,33 +1,9 @@
-<?php
-session_start();
- $server = "localhost";
- $dbuser = "root";
- $pass = "root";
- $db = "model";
- // Database connection (server,username,password,database)
- $conn = new mysqli($server,$dbuser,$pass,$db);
- // Check connection
- if($conn === false){
-     die("COULD NOT CONNECT. ".$conn->connect_error);
- }
- 
-$username = $_SESSION['username'];
-
-//$sql = "SELECT MAX(imageId) FROM output_images WHERE username='$username'"; 
-$sql = "SELECT username, MAX(imageId) FROM output_images WHERE username = 'user1'";
-$result = mysqli_query($conn, $sql);
-while($row = mysqli_fetch_array($result)) {
-    $_SESSION['id'] = $row['MAX(imageId)'];
-    
-}
-?>
-
 <!doctype html>
 <html>
 
 <head>
-	<title>3D Model AR</title>
-	<meta charset="UTF-8" />
+    <title>3D Model AR</title>
+    <meta charset="UTF-8" />
 
 <!-- Import the component -->
 <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.js"></script>
@@ -39,36 +15,31 @@ while($row = mysqli_fetch_array($result)) {
 </head>
 
 <body class="w-100 sans-serif bg-white"> 
-    <?php
-    session_start();
-    if (isset($_GET['username'])){
-        $_SESSION['username'] = $_GET['username'];
-    }
-    ?>
-<!--
-    <model-viewer ar ar-modes="webxr scene-viewer quick-look" camera-controls src="model/2chairs.glb" alt="A 2 chair">
-	
-</model-viewer>
--->
-    <?php
-            $id = $_SESSION['id'];
-            $sql = "SELECT * FROM output_images WHERE imageId = '$id'";
-            $result = mysqli_query($conn, $sql);
-            
-            while ($row1 =  mysqli_fetch_array($result)) { 
-                echo "<model-viewer ar ar-modes='webxr scene-viewer quick-look' camera-controls src='data:".$row1["imageType"].";base64,".base64_encode($row1['imageData'])."' alt='A 2 chair'>
-                        <button slot='ar-button' id='ar-button'>
-                        View in your space
-                        </button>
-                    ";
+        <?php
+            session_start();
+            require_once "../login/config.php"; 
+
+            $email =  $_SESSION['userlogin'];
+            // Get id to display the newest project
+            $sql = "SELECT email, MAX(model_id) as model_id FROM Creator_Models WHERE email = '$email'";
+            foreach($db->query($sql, PDO::FETCH_ASSOC) as $row){
+
+                $_SESSION['id'] = $row['model_id'];
             }
-            
-     	
-       
-    ?>
+            // Display newest project
+            $id = $_SESSION['id'];
+            $sql1 = "SELECT * FROM Creator_Models WHERE model_id = '$id'";
+            foreach($db->query($sql1, PDO::FETCH_ASSOC) as $row){
+                echo "<model-viewer ar ar-modes='webxr scene-viewer quick-look' camera-controls src='data:".$row["filetype"].";base64,".base64_encode($row['model_file'])."'>
+                <button slot='ar-button' id='ar-button'>
+                View in your space
+                </button>
+                "; 
+            }
+        ?>
 <style>
 body{
-	  overflow:hidden;
+      overflow:hidden;
     font-family: -apple-system,BlinkMacSystemFont,avenir next,avenir,helvetica neue,helvetica,ubuntu,roboto,noto,segoe ui,arial,sans-serif;
 }
 
@@ -77,13 +48,11 @@ article.pa3.pa5-ns {
 }
 
 model-viewer{
-	position: absolute;
-	width:100vw;
-	height:100vh;
-	margin: 0 auto;
+    position: absolute;
+    width:100vw;
+    height:100vh;
+    margin: 0 auto;
 }
 </style>
 
 </body>
-
-</html>
