@@ -24,13 +24,13 @@ function SidebarDatabaseLibrary( editor ) {
     container.add( libraryRow );
 
     //add function that will link to model library
-    var option = ['shiba','fish','dinosaur','desk','house','statue','sculpture'];
+    //var option = ['shiba','fish','dinosaur','desk','house','statue','sculpture'];
     var items = [
-		{ title: 'models/shiba.png', file: 'models/shiba/', cate: 'animal' },
-		{ title: 'models/house.png', file: 'models/house/', cate: 'architecture' },
-        { title: 'models/car.png', file: 'models/car/', cate: 'vehicle' },
-        { title: 'models/squid.png', file: 'models/squid/', cate: 'character' },
-        { title: 'models/minion.png', file: 'models/minion/', cate: 'character' }
+		{ title: 'models/wasp.png', file: 'models/wasp/', cate: 'Animal' },
+		{ title: 'models/skull.png', file: 'models/skull/', cate: 'Sculpture' },
+        { title: 'models/car.png', file: 'models/car/', cate: 'Vehicle' },
+        { title: 'models/squid.png', file: 'models/squid/', cate: 'Characters' },
+        { title: 'models/drone.png', file: 'models/drone/', cate: 'Technology' }
 
 	];
 
