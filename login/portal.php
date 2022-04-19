@@ -45,7 +45,7 @@ session_start();
  <header id="header" class="d-flex align-items-center">
     <div class="container d-flex align-items-center justify-content-between">
 
-      <a href="index.html" class="logo"><img src="assets/img/logo.png" alt=""></a>
+      <a href="index.php" class="logo"><img src="assets/img/logo.png" alt=""></a>
 
       <nav id="navbar" class="navbar">
         <ul>
@@ -114,12 +114,14 @@ session_start();
 									foreach($result as $row)
 									{
 										if($_SESSION['userlogin']==$row->email){
-										
+											$qr_link = "coe-202201-4952-3-fe.hpc.fau.edu/database/view.php?id=".$row->model_id;
+											$qr_link = str_replace(':444', '', $qr_link);
+											echo $qr_link	
 							?>
 										<tr class="row100">
 											<td class="column100 column1" data-column="column1"><?php echo $row->file_name; ?></td>
-											<td class="column100 column2" data-column="column2"><a href="<?php echo "coe-202201-4952-3-fe.hpc.fau.edu/database/view.php?id=".$row->model_id;?>" class="QRcode"><?php echo "coe-202201-4952-3-fe.hpc.fau.edu/database/view.php?id=".$row->model_id;?></a></td>
-											<td class="column100 column3" data-column="column3"><a class="btn btn-success" tabindex="0" title="QR Code" role="button" data-toggle="popover" data-trigger="focus" data-placement="bottom" data-url="<?php echo "coe-202201-4952-3-fe.hpc.fau.edu/database/view.php?id=".$row->model_id;?>">View QR Code</a>
+											<td class="column100 column2" data-column="column2"><a href="<?php echo "/database/view.php?id=".$row->model_id;?>" class="QRcode"><?php echo "coe-202201-4952-3-fe.hpc.fau.edu/database/view.php?id=".$row->model_id;?></a></td>
+											<td class="column100 column3" data-column="column3"><a class="btn btn-success" tabindex="0" title="QR Code" role="button" data-toggle="popover" data-trigger="focus" data-placement="bottom" data-url="<?php echo $qr_link;?>">View QR Code</a>
 											<div id="qrcode" style="display: none; width: auto; height: auto; padding: 15px;"></div> </td>
 									
 										</tr>

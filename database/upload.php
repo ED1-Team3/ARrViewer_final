@@ -22,7 +22,6 @@ require_once "../login/config.php";
                 }else{
                     $_SESSION['error'] = "Cannot insert into the database.";
                 }
-              
             }
             else{
                 $_SESSION['error'] = "Please try again. Your AR file is invalid.";
