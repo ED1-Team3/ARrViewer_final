@@ -21,7 +21,7 @@ function MenubarAdd( editor ) {
 	container.add( options );
 
 	// Group
-
+	/*
 	var option = new UIRow();
 	option.setClass( 'option' );
 	option.setTextContent( strings.getKey( 'menubar/add/group' ) );
@@ -34,7 +34,7 @@ function MenubarAdd( editor ) {
 
 	} );
 	options.add( option );
-
+	*/
 	//
 
 	options.add( new UIHorizontalRule() );
@@ -88,7 +88,7 @@ function MenubarAdd( editor ) {
 	options.add( option );
 
 	// Dodecahedron
-
+	/*
 	var option = new UIRow();
 	option.setClass( 'option' );
 	option.setTextContent( strings.getKey( 'menubar/add/dodecahedron' ) );
@@ -150,7 +150,7 @@ function MenubarAdd( editor ) {
 
 	} );
 	options.add( option );
-
+*/
 	// Plane
 
 	var option = new UIRow();
@@ -201,7 +201,7 @@ function MenubarAdd( editor ) {
 	options.add( option );
 
 	// Sprite
-
+/*
 	var option = new UIRow();
 	option.setClass( 'option' );
 	option.setTextContent( strings.getKey( 'menubar/add/sprite' ) );

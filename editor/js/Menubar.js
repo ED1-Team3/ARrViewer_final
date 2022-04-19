@@ -2,7 +2,7 @@ import { UIPanel } from './libs/ui.js';
 
 
 //remove
-//import { MenubarAdd } from './Menubar.Add.js';
+import { MenubarAdd } from './Menubar.Add.js';
 import { MenubarEdit } from './Menubar.Edit.js';
 import { MenubarFile } from './Menubar.File.js';
 import { MenubarExamples } from './Menubar.Examples.js';
@@ -23,7 +23,7 @@ function Menubar( editor ) {
 	container.add( new MenubarFile( editor ) );
 	container.add( new MenubarEdit( editor ) );
 	//remove
-	//container.add( new MenubarAdd( editor ) );
+	container.add( new MenubarAdd( editor ) );
 	//container.add( new MenubarPlay( editor ) );
 	container.add( new MenubarExamples( editor ) );
 	container.add( new MenubarView( editor ) );

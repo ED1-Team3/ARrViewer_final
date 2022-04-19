@@ -1,0 +1,11 @@
+Model Information:
+* title:	Old Chimpanzee skull
+* source:	https://sketchfab.com/3d-models/old-chimpanzee-skull-3d8a3d1177424af182e0737a1afc8bb7
+* author:	Tavernier Amaury (https://sketchfab.com/svtavernier)
+
+Model License:
+* license type:	CC-BY-NC-SA-4.0 (http://creativecommons.org/licenses/by-nc-sa/4.0/)
+* requirements:	Author must be credited. No commercial use. Modified versions must have the same license.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Old Chimpanzee skull" (https://sketchfab.com/3d-models/old-chimpanzee-skull-3d8a3d1177424af182e0737a1afc8bb7) by Tavernier Amaury (https://sketchfab.com/svtavernier) licensed under CC-BY-NC-SA-4.0 (http://creativecommons.org/licenses/by-nc-sa/4.0/)

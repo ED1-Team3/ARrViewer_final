@@ -36,7 +36,7 @@ function Strings( config ) {
 			'menubar/edit/delete': 'Delete (Del)',
 			'menubar/edit/fixcolormaps': 'Fix Color Maps',
 
-			/*'menubar/add': 'Add',
+			'menubar/add': 'Add',
 			'menubar/add/group': 'Group',
 			'menubar/add/plane': 'Plane',
 			'menubar/add/box': 'Box',
@@ -44,7 +44,7 @@ function Strings( config ) {
 			'menubar/add/cylinder': 'Cylinder',
 			'menubar/add/ring': 'Ring',
 			'menubar/add/sphere': 'Sphere',
-			'menubar/add/dodecahedron': 'Dodecahedron',
+			/*'menubar/add/dodecahedron': 'Dodecahedron',
 			'menubar/add/icosahedron': 'Icosahedron',
 			'menubar/add/octahedron': 'Octahedron',
 			'menubar/add/tetrahedron': 'Tetrahedron',
@@ -52,14 +52,14 @@ function Strings( config ) {
 			'menubar/add/tube': 'Tube',
 			'menubar/add/torusknot': 'TorusKnot',
 			'menubar/add/lathe': 'Lathe',
-			'menubar/add/sprite': 'Sprite',
+			'menubar/add/sprite': 'Sprite',*/
 			'menubar/add/pointlight': 'PointLight',
 			'menubar/add/spotlight': 'SpotLight',
 			'menubar/add/directionallight': 'DirectionalLight',
 			'menubar/add/hemispherelight': 'HemisphereLight',
 			'menubar/add/ambientlight': 'AmbientLight',
 			'menubar/add/perspectivecamera': 'PerspectiveCamera',
-			'menubar/add/orthographiccamera': 'OrthographicCamera',*/
+			'menubar/add/orthographiccamera': 'OrthographicCamera',
 
 			'menubar/status/autosave': 'autosave',
 
