@@ -282,6 +282,12 @@ th, td {
   background-color: #880000;
   border-color: #880000;
 }
+#Qrbutton {
+  background-color: #4f9bff;
+  border-color: #000000;
+  border-radius: 9;
+  font: bold;
+}
 .navbar {
   padding: 0;
 }
@@ -334,4 +340,42 @@ th, td {
 }
 .navbar a:hover, .navbar .active, .navbar .active:focus, .navbar li:hover > a {
   color: #880000;
+}
+
+#upload {
+  width: 100%;
+  min-height: 100vh;
+  background: url("../assets/img/portal.jpg");
+  background-repeat: no-repeat;
+  background-size:cover;
+  /* display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox; */
+  /* display: flex;
+  align-items: center;
+  justify-content: center; */
+  flex-wrap: wrap;
+  padding: 33px 30px;
+}
+
+#model {
+  background: url("../assets/img/portal.jpg");
+  background-repeat: no-repeat;
+  background-size:cover;
+}
+
+#ar-button{
+  background-color: rgb(0, 0, 0);
+  font-size: 90%;
+  color: rgb(255, 255, 255);
+  border: 4px solid #690000;
+  width: 33%;
+  height: 6%;
+}
+
+@media (max-width: 480px) {
+  #desktop {
+    display: none;
+  }
 }

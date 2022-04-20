@@ -100,8 +100,6 @@
                   var valid = this.form.checkValidity();
 
                      if(valid){
-                        var firstname      = $('#first_name').val();
-                        var lastname      = $('#last_name').val();
                         var email = $('#email').val();
                         var password = $('#password').val();
                      }
@@ -109,18 +107,23 @@
                      e.preventDefault();
 
                      $.ajax({
-                        type: 'POST',
+                        type: 'GET',
                         url: 'jslogin.php',
-                        data: {firstname: firstname, lastname: lastname, email: email,password: password},
+                        data: { email: email,password: password},
                         success: function(data){
-                           alert(data);
+                           //alert(data);
                            if($.trim(data) === "Login Successful"){
                               setTimeout(' window.location.href =  "portal.php"', 1000);
                            }
+                           if ($.trim(data) === "Invalid email or password. Try again."){
+                              alert(data);
+                              setTimeout(' window.location.href =  "Login.php"', 1000);
+                           }
                         },
-                        error: function(data){
-                           alert('there were erros while doing the operation.');
-                        }
+                         error: function(data){
+                            alert(data);
+                            //alert('there were erros while doing the operation.');
+                         }
                      });
                });
             });

@@ -12,6 +12,8 @@
 
 <link rel="stylesheet" href="https://unpkg.com/tachyons@4.10.0/css/tachyons.min.css"/>
 
+<link rel="stylesheet" type="text/css" href="../login/css/main.css">
+
 </head>
 
 <body class="w-100 sans-serif bg-white"> 

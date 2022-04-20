@@ -9,7 +9,7 @@ session_start();
 	if(isset($_GET['logout'])){
 		session_destroy();
 		unset($_SESSION);
-		header("Location: index.php");
+		header("Location: ../index.php");
 	}
 
 ?>
@@ -45,7 +45,7 @@ session_start();
  <header id="header" class="d-flex align-items-center">
     <div class="container d-flex align-items-center justify-content-between">
 
-      <a href="index.php" class="logo"><img src="assets/img/logo.png" alt=""></a>
+      <a href="../index.php" class="logo"><img src="assets/img/logo.png" alt=""></a>
 
       <nav id="navbar" class="navbar">
         <ul>
@@ -81,7 +81,7 @@ session_start();
 								}
 							}
 							// $resultCheck = 
-						?>'s Creator Portal</strong></b></h1>
+						?>'s Creator Portal</strong></b></h1><br>
 
 
 	<section id="portal" class="d-flex align-items-center">
@@ -93,16 +93,17 @@ session_start();
 				<div class="table100 ver1 m-b-110">
 				<div id="container" class="flex">
 					<div class="completed"><h1><b> Completed Projects</b></h1></div>
-					<div id="create"><a href="../editor/index.html"><button type="button" id="myBtn" class="btn btn-primary navbar-btn">            
+					<div id="create"><a href="../editor/index.php"><button type="button" id="myBtn" class="btn btn-primary navbar-btn">            
 					<b>Create a New Project</b></button></a></div>
 					</div>
 					
 					<table data-vertable="ver1">
 						<thead>
 							<tr class="row100 head">
-								<th class="column100 column1" data-column="column1">Project Name</th>
+								<th class="column100 column3" data-column="column3">File Name</th>
+								<th class="column100 column4" data-column="column4">Date Completed</th>
 								<th class="column100 column2" data-column="column2">Link</th>
-								<th class="column100 column4" data-column="column4">QR Code</th> 
+								<th class="column100 column3" data-column="column3">QR Code</th> 
 							</tr>
 						</thead>
 						<tbody>
@@ -114,14 +115,14 @@ session_start();
 									foreach($result as $row)
 									{
 										if($_SESSION['userlogin']==$row->email){
-											$qr_link = "coe-202201-4952-3-fe.hpc.fau.edu/database/view.php?id=".$row->model_id;
-											$qr_link = str_replace(':444', '', $qr_link);
-											echo $qr_link	
 							?>
 										<tr class="row100">
-											<td class="column100 column1" data-column="column1"><?php echo $row->file_name; ?></td>
-											<td class="column100 column2" data-column="column2"><a href="<?php echo "/database/view.php?id=".$row->model_id;?>" class="QRcode"><?php echo "coe-202201-4952-3-fe.hpc.fau.edu/database/view.php?id=".$row->model_id;?></a></td>
-											<td class="column100 column3" data-column="column3"><a class="btn btn-success" tabindex="0" title="QR Code" role="button" data-toggle="popover" data-trigger="focus" data-placement="bottom" data-url="<?php echo $qr_link;?>">View QR Code</a>
+											<td class="column100 column3" data-column="column3"><?php echo $row->file_name; ?></td>
+											<td class="column100 column4" data-column="column4"><?php echo $row->date; ?></td>
+											<td class="column100 column2" data-column="column2"><a href="<?php echo "/database/view.php?id=".$row->model_id;?>" 
+												class="QRcode"><?php echo "coe-202201-4952-3-fe.hpc.fau.edu/database/view.php?id=".$row->model_id;?></a></td>
+											<td class="column100 column3" data-column="column3"><a type="button" class="btn btn-primary navbar-btn" id="Qrbutton" tabindex="0" title="QR Code" role="button" 
+												data-toggle="popover"  data-placement="bottom" data-url="<?php echo "https://coe-202201-4952-3-fe.hpc.fau.edu/database/view.php?id=".$row->model_id;?>">View QR Code</a>	
 											<div id="qrcode" style="display: none; width: auto; height: auto; padding: 15px;"></div> </td>
 									
 										</tr>
@@ -139,7 +140,7 @@ session_start();
 
 
 	
-
+	<script type="text/javascript" src="http://static.runoob.com/assets/qrcode/qrcode.min.js"></script>
 <!--===============================================================================================-->	
 	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
 <!--===============================================================================================-->
@@ -169,6 +170,7 @@ session_start();
 						content: jQuery("#qrcode"),
 						html: true 
 			}
+
 		);
 		//Show QR code
 		jQuery("[data-toggle='popover']").on("show.bs.popover", function(e) {
@@ -178,5 +180,6 @@ session_start();
 	});
 
 	</script>
+
 </body>
 </html>

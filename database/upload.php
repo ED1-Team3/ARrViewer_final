@@ -17,7 +17,7 @@ require_once "../login/config.php";
                 $result = $stmtinsert->execute([$imgData, $filename, $email, $imageProperties['mime']]);
 
                 if($result){
-                    echo "Success! You can now log in.";             
+                    echo "Success!";             
                     header("Location: display.php");
                 }else{
                     $_SESSION['error'] = "Cannot insert into the database.";
@@ -28,7 +28,11 @@ require_once "../login/config.php";
             }
         }
         
-    
+        if(isset($_GET['logout'])){
+            session_destroy();
+            unset($_SESSION);
+            header("Location: ../index.php");
+        }
     ?>
 
 
@@ -66,6 +70,17 @@ require_once "../login/config.php";
             <a href="../login/portal.php" class="logo"><img src="../login/assets/img/logo.png" alt=""></a>
 
             <nav id="navbar" class="navbar">
+        <ul>
+
+            <li>
+              <a href="../login/portal.php?logout=true"><button type="button" id="myBtn" class="btn btn-primary navbar-btn">            
+                <b>LOG OUT</b>
+              </button></a>
+            </li> 
+
+          
+      
+        </ul>
                 <i class="bi bi-list mobile-nav-toggle"></i>
             </nav><!-- .navbar -->
 
@@ -80,16 +95,24 @@ require_once "../login/config.php";
             unset($_SESSION['error']);
         }
     ?>
-	<div class="center">
-	    <h1><strong>Upload your glb file here to see your work</strong></h1>
+	
+    <div id="upload">
+    <div class="center">
+        <br>
+	    <h2><strong>Upload your glb file here to see your work.</strong></h2>
 	</div>
     <div id="container" class="center">
         <form name="frmImage" enctype="multipart/form-data" action="upload.php" method="post">
-               <label>Your glb file should be under 4MB.</label>
+               <label>(Glb file must be under 4MB.)</label>
+               <br>
+               <br>
                 <input id="center" name="file" type="file" />
-                <input  class="btn btn-dark" id="center" type="submit" value="Submit"/>
+                <br>
+                <input id="myBtn" class="btn btn-dark" id="center" type="submit" value="Submit"/>
+            
         </form>
 
+    </div>
     </div>
     <section id="portal" class="d-flex align-items-center">
 	</section>

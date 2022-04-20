@@ -12,9 +12,28 @@
 
 <link rel="stylesheet" href="https://unpkg.com/tachyons@4.10.0/css/tachyons.min.css"/>
 
+<link rel="stylesheet" type="text/css" href="../login/css/main.css">
+
 </head>
 
-<body class="w-100 sans-serif bg-white"> 
+<!-- ======= Header ======= -->
+<div id="desktop">
+<header id="header" class="d-flex align-items-center">
+    
+    <div class="container d-flex align-items-center justify-content-between">
+
+      <a href="../login/portal.php" class="logo"><img src="../login/assets/img/creator.png" alt=""></a>
+
+      <nav id="navbar" class="navbar">
+
+      </nav><!-- .navbar -->
+
+    </div>
+  </header><!-- End Header -->
+  </div>
+
+
+<body class="w-100 sans-serif bg-white" id = "model"> 
         <?php
             session_start();
             require_once "../login/config.php"; 
@@ -39,7 +58,7 @@
         ?>
 <style>
 body{
-      overflow:hidden;
+    overflow:hidden;
     font-family: -apple-system,BlinkMacSystemFont,avenir next,avenir,helvetica neue,helvetica,ubuntu,roboto,noto,segoe ui,arial,sans-serif;
 }
 
